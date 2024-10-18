@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rgb(119, 206, 165);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2rem;
+        }
+
+        h1 {
+            color: rgb(182, 78, 78);
+        }
+    </style>
+    <title>Meu primeiro programa</title>
+</head>
+<body>
+    <h1>Olá Mundo !</h1>
+    <p>Me livrei da maldição</p>
+    <script>
+        var n1 = Number.parseFloat(window.prompt('Digite o primeiro número')) // O prompt retorna o resultado como uma string.
+        var n2 = Number(window.prompt('Digite o segundo número')) // O prompt retorna o resultado como uma string.
+        var s = n1 + n2
+        window.alert(`A soma entre ${n1} e ${n2} é igual a ${s}`) // Concatenação
+        // ( number + numer ) para soma
+        // ( string + string ) para concatenação
+    </script>
+</body>
+</html>
