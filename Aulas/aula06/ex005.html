@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: rgb(63, 63, 185);
+            color: white;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <title>Primeiros passos com DOM</title>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar <strong>DOM</strong> com Javascript</p>
+    <div id="msg">Clique em mim</div>
+    <script>
+        var p1 = window.document.getElementsByTagName('p')[0]
+        window.document.write(p1.innerText) //O 'TagName' pega uma tag do html.
+        // A gente criou uma classe chamada p1 que estava pegando o 1° 'p' e trascrevemos ele com o javascript.
+
+        var d = window.document.getElementById("msg")
+        d.style.background = "red"
+        d.innerText = "Estou aguardando ..."
+        // O 'id' pega um id do seu html.
+        // Da mesma forma posso fazer com name, class e selector.
+        var d = window.document.querySelector("div#msg")
+        d.style.color = "white"
+        // Esse é com o selector usando querySelector.
+
+    </script>
+</body>
+</html>
