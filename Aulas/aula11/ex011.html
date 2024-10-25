@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local de Moradia</title>
+</head>
+<body>
+    <h1>Nacionalidade</h1>
+    Onde você está localizado? <input type="text" name="nlocal" id="npais">
+    <input type="button" value="Avançar" onclick="avancar()">
+    <div id="res"></div>
+    <script>
+        function avancar() {
+            var pais = window.document.getElementById("npais")
+            var res = window.document.getElementById("res")
+            var nac = String(pais.value)
+            res.innerHTML = `<p>O País onde você está morando é ${nac}</p>`
+            if (nac == "Brasil") {
+                res.innerHTML += `<p>Você é brasileiro!</p>`
+            }else{
+                res.innerHTML += `<p>Você é estrangeiro!</p>`
+            }
+        }
+    </script>
+</body>
+</html>
