@@ -21,12 +21,12 @@
     <h1>Olá Mundo !</h1>
     <p>Me livrei da maldição</p>
     <script>
-        var n1 = Number.parseFloat(window.prompt('Digite o primeiro número')) // O prompt retorna o resultado como uma string.
-        var n2 = Number(window.prompt('Digite o segundo número')) // O prompt retorna o resultado como uma string.
-        var s = n1 + n2
-        window.alert(`A soma entre ${n1} e ${n2} é igual a ${s}`) // Concatenação
-        // ( number + numer ) para soma
-        // ( string + string ) para concatenação
+       let n1 = parseFloat(prompt('Digite um número: '));//Convertendo de string para number
+       let n2 = Number(prompt('Digite outro número: '));//Outra forma de converter
+       let soma = n1 + n2;
+       //(number + number) = adição
+       //(String + string) = concatenação
+       alert(`A soma entre ${n1} e ${n2} é igual a ${soma}`)//Converter de number para string
     </script>
 </body>
 </html>
