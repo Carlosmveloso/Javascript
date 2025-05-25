@@ -1,49 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 10 (Eventos DOM)</title>
     <style>
-        div#area{
-            background-color: green;
-            color: white;
-            width: 200px;
-            height: 200px;
-            line-height: 200px;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 18px;
-        }
+      div#area {
+        font: normal 20px arial;
+        background: green;
+        color: white;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+      }
     </style>
-    <title>Eventos DOM</title>
-</head>
-<body>
-    <div id="area">
-        Interaja...
-    </div>
+  </head>
+  <body>
+    <div id="area">Interaja...</div>
     <script>
+      let area = document.getElementById("area"); // Elevamos a variável de dentro de uma function pra podermos usar em várias outras funções
+      area.addEventListener("click", clicar);// Ouvidor de eventos
+      area.addEventListener("mouseenter", entrar);
+      area.addEventListener("mouseout", sair);
 
-        var area = window.document.getElementById("area")
-        area.addEventListener("click", clicar)
-        area.addEventListener("mouseenter", entar)
-        area.addEventListener("mouseout", sair) 
-
-        function clicar() {
-            var area = window.document.getElementById("area")
-            area.innerHTML = "Clicou !"
-            area.style.background = "Red"
-        }
-
-        function entar() {
-            var area = window.document.getElementById("area")
-            area.innerHTML = "Entrou !"
-        }
-
-        function sair() {
-            var area = window.document.getElementById("area")
-            area.innerHTML = "Saiu !"
-            area.style.background = "Green"
-        }
+      function clicar() {
+        area.innerText = "Clicou";
+        area.style.background = "blue";
+      }
+      function entrar() {
+        area.innerText = "Entrou";
+        area.style.background = "red";
+      }
+      function sair() {
+        area.innerText = "Saiu";
+        area.style.background = "yellow";
+      }
     </script>
-</body>
+  </body>
 </html>

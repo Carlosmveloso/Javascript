@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 10 (Eventos DOM)</title>
     <style>
-        body{
+        body {
             font: normal 18px arial;
         }
 
-        input{
+        input {
             font: normal 18px arial;
             width: 100px;
         }
 
-        div#res{
-            margin-top: 20px;
+        #res {
+            margin-top: 10px;
         }
     </style>
-    <title>Somando Números</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Somando Valores</h1>
-    <input type="number" name="texto1" id="texto1"> +
-    <input type="number" name="texto2" id="texto2">
-    <input type="button" value="Somar" onclick="somar()">
-
+    <input type="number" name="texto1" id="texto1" />
+    <input type="number" name="texto2" id="texto2" />
+    <input type="button" value="Somar" id="btn"" />
     <div id="res">Resultado</div>
-
     <script>
-        function somar() {
-            var txt1 = window.document.getElementById("texto1") 
-            var txt2 = window.document.getElementById("texto2")
-            var res = window.document.getElementById("res")
-            var n1 = Number(txt1.value)
-            var n2 = Number(txt2.value)
-            var s = n1 + n2
-            res.innerHTML = `A soma entre ${n1} e ${n2} é igual a ${s}`
-        }
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", somar);
+
+      function somar() {
+        let number1 = document.getElementById("texto1");
+        let number2 = document.getElementById("texto2");
+        let resultado = document.getElementById("res");
+
+        let n1 = Number(number1.value);
+        let n2 = Number(number2.value);
+
+        let soma = n1 + n2;
+
+        resultado.innerHTML = `O resultado da soma é ${soma}`;
+      }
     </script>
-    </body>
+  </body>
 </html>
