@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detran</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Sistema de Multas</h1>
-    Velocidade do carro: <input type="number" name="vel" id="txtvel"> km/h
-    <input type="button" value="Verificar" onclick="calcular()">
+    Velocidade do carro: <input type="number" name="vel" id="vel" /> km/h
+    <input type="button" value="Verificar" id="btnVerificar" />
     <div id="res"></div>
     <script>
-        function calcular() {
-            var txtv = window.document.getElementById("txtvel")
-            var res = window.document.getElementById("res")
-            var vel = Number(txtv.value)
-            res.innerHTML = `<p>Sua velocidade é de ${vel} km/h</p>`
-            
-            if (vel > 50) {
-                res.innerHTML += `<p>Você vai ser <strong>MULTADO</strong> por excesso de velocidade.</p>`
-            }
-            res.innerHTML += `<p>Diriga sempre com cinto de segurança!</p>`
+      let velocidade = document.getElementById("vel");
+      let resultado = document.getElementById("res");
+      let btnVerificar = document.getElementById("btnVerificar");
+      btnVerificar.addEventListener("click", verificar);
+
+      function verificar() {
+        let nVelocidade = Number(velocidade.value);
+        if (nVelocidade> 50) {
+          resultado.innerText = `Você estava a ${nVelocidade}km/h a uma via que era no máximo 50km/h por isso foi MULTADO!`;
+        } else {
+          resultado.innerText = `Você está seguindo as regras de trânsito, continue assim!`;
         }
+      }
     </script>
-</body>
+  </body>
 </html>
