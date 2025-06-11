@@ -1,8 +1,10 @@
-//Estrura de repetição com teste lógico no final
+//Faça tal coisa quando a condição for verdadeira
 
 
-var contador = 1
-do {
-    console.log(`Passo ${contador}`);
-    contador++
-} while (contador <= 3)
+ var contador = 10
+ do {
+     console.log(`Fatias sobrando ${contador}`);
+    contador--
+ } while (contador > 0)
+
+    console.log('Acabou a pizza');

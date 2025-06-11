@@ -1,11 +1,9 @@
-//console.log("Tudo bem ?");
-//console.log("Tudo bem ?");
-//console.log("Tudo bem ?");
+// Quando o condição for verdadeira faça tal coisa
 
-
-// Estrutura de repetição com teste lógico no início
-var contador = 1
-while (contador <= 3) {
-    console.log(`Contador ${contador}`);
-    contador++
+var contador = 10
+while (contador > 0) {
+    console.log(`Fatias sobrando: ${contador}`);
+    contador--
 }
+
+console.log('Acacou a pizza!')
