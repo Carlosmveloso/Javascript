@@ -1,12 +1,9 @@
-let num = [2, 17, 25]
+const btnTestar = document.getElementById("testar");
+btnTestar.addEventListener("click", testar);
 
-num.push(1)
-num.sort()
-console.log(num);
-console.log(`Nosso vetor tem ${num.length} posições`);
-console.log(`O primeiro elemento da array é o ${num[0]}`);
+function testar() {
+  let num = ['Duster', 'Spin', 'Flashback', 'Onix', 'Polo'];
+  num.push(6)
 
-
-
-
-
+  console.log(num.sort());
+}

@@ -1,6 +1,15 @@
-let valores = [2, 17, 25, 33, 56, 74, 98, 103]
+const btnTestar = document.getElementById("testar");
+btnTestar.addEventListener("click", testar);
 
-for (let pos = 0; pos <= valores.length; pos++) {
-    console.log(`A posição ${pos} tem valor de ${valores[pos]}`);
+function testar() {
+  let numeros = [1, 3, 4, 6, 7, 9, 12, 14]
+
+  for (let posicao = 0; posicao < numeros.length; posicao++) {
+    console.log(`A posição ${posicao} tem o valor ${numeros[posicao]}`);
+  }
+
+  for (let posicao in numeros) {
+    console.log(num[posicao]);
     
-}    
+  }
+}
