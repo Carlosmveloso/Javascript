@@ -1,63 +1,70 @@
-let num = window.document.getElementById("fnum")
-let lista = window.document.getElementById("flista")
-let res = window.document.getElementById("res")
-let valores = []
+let numeroDigitado = document.getElementById("numeroDigitado");
+let listaDeNumeros = document.getElementById("listaDeNumeros");
+let resultado = document.getElementById("res");
+let todosOsNumeros = [];
 
-function isNumero(n) {
-    if (Number(n) >= 1 && Number(n) <= 100) {
-        return true
-    } else {
-        return false
-    }
+let btnAdicionar = document.getElementById("adicionar");
+btnAdicionar.addEventListener("click", adicionar);
+
+function numeroValido(numero) {
+  if (Number(numero) >= 1 && Number(numero) <= 100) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function inLista(n, l) {
-    if (l.indexOf(Number(n)) != -1) {
-        return true
-    } else {
-        return false
-    }
+function dentroDaLista(numero, listaDeTodosOsNumeros) {
+  if (listaDeTodosOsNumeros.indexOf(Number(numero)) != -1) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function adicionar() {
-    if (isNumero(num.value) && !inLista(num.value, valores)) { // A ! quer dizer não
-        valores.push(Number(num.value))
-        let item = window.document.createElement("option")
-        item.text = `Valor ${num.value} adicionado`
-        lista.appendChild(item)
-        res.innerHTML = ""
-    }else {
-        window.alert(`Valor inválido ou já foi encontrado na lista.`)
-    }
-    num.value = ""
-    num.focus()
+  if (
+    numeroValido(numeroDigitado.value) &&
+    !dentroDaLista(numeroDigitado.value, todosOsNumeros)
+  ) {
+    todosOsNumeros.push(Number(numeroDigitado.value));
+    let item = document.createElement("option");
+    item.text = `Valor ${numeroDigitado.value} adicionado`;
+    listaDeNumeros.appendChild(item);
+    resultado.innerHTML = ``;
+  } else {
+    alert("Valor inválido ou já encontrado na lista!");
+  }
+  numeroDigitado.value = "";
+  numeroDigitado.focus();
 }
 
+let btnFinalizar = document.getElementById("finalizar");
+btnFinalizar.addEventListener("click", finalizar);
+
 function finalizar() {
-    if (valores.length == 0) {
-        window.alert("Adicione um valor antes de finalizar.")
-    } else {
-        let tot = valores.length
-        let maior = valores[0]
-        let menor = valores[0]
-        let soma = 0
-        let media = 0
+  if (todosOsNumeros.length == 0) {
+    alert("Adicionar algum valor antes de verificar");
+  } else {
+    let totalDeElementos = todosOsNumeros.length;
 
-        for (let pos in valores) {
-            soma += valores[pos]
-            if (valores[pos] > maior)
-                maior = valores[pos]
-
-            if (valores[pos] < menor)
-                menor = valores[pos]
-        }
-        media = soma / tot
-
-        res.innerHTML = ""
-        res.innerHTML += `<p>Ao todo, temos ${tot} números cadastrados.</p>`
-        res.innerHTML += `<p>O maior valor informado foi ${maior}</p>`
-        res.innerHTML += `<p>O menor valor informado foi ${menor}</p>`
-        res.innerHTML += `<p>Somando todos os itens temos ${soma}</p>`
-        res.innerHTML += `<p>A média dos valores digitados é ${media}</p>`
+    let maiorNumero = todosOsNumeros[0];
+    let menorNumero = todosOsNumeros[0];
+    let soma = 0;
+    let media = 0;
+    for (let posicao in todosOsNumeros) {
+      soma += todosOsNumeros[posicao];
+      if (todosOsNumeros[posicao] > maiorNumero)
+        maiorNumero = todosOsNumeros[posicao];
+      if (todosOsNumeros[posicao] < menorNumero)
+        menorNumero = todosOsNumeros[posicao];
     }
+    media = soma / totalDeElementos;
+    resultado.innerHTML = ``;
+    resultado.innerHTML += `<p>Ao todo temos ${totalDeElementos} números cadastrados.</p>`;
+    resultado.innerHTML += `<p>O maior número informado é ${maiorNumero}</p>`;
+    resultado.innerHTML += `<p>O menor número informado é ${menorNumero}</p>`;
+    resultado.innerHTML += `<p>Somando todos os valores, temos ${soma}</p>`;
+    resultado.innerHTML += `<p>A média de todos esse números é ${media}</p>`;
+  }
 }
